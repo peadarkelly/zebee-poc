@@ -3,8 +3,8 @@
 This POC is heavily based off the [Zebee Getting Started Tutorial](https://docs.zeebe.io/getting-started/index.html) and is enhanced with the [zeebe-node](https://www.npmjs.com/package/zeebe-node) library.
 
 This POC contains:
-* [zb-initialiser] - An ExpressJS REST API Micoservice used to initiate a Zeebe Process
-* [zb-initiate-payment] - A Typescript NodeJS example Worker microservice that reacts to a job event
+* [zb-initialiser](https://github.com/peadarkelly/zebee-poc/tree/master/operate/zb-initialiser) - An ExpressJS REST API Micoservice used to initiate a Zeebe Process
+* [zb-initiate-payment](https://github.com/peadarkelly/zebee-poc/tree/master/operate/zb-initiate-payment) - A Typescript NodeJS example Worker microservice that reacts to a job event
 
 ## Prerequsites:
 * The [Zebee Getting Started Tutorial](https://docs.zeebe.io/getting-started/index.html) has been completed, with the BPMN file being deployed to the Zeebe broker.
