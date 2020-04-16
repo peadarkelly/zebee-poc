@@ -1,3 +1,7 @@
+# Note
+
+This POC utilised the `operate` directory. View its README for more info.
+
 # Zeebe + Operate in Docker
 
 This repository contains configuration files to setup an environment to
