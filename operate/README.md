@@ -1,3 +1,34 @@
+# Zebee Node POC
+
+This POC is heavily based off the [Zebee Getting Started Tutorial](https://docs.zeebe.io/getting-started/index.html) and is enhanced with the [zeebe-node](https://www.npmjs.com/package/zeebe-node) library.
+
+This POC contains:
+* [zb-initialiser] - An ExpressJS REST API Micoservice used to initiate a Zeebe Process
+* [zb-initiate-payment] - A Typescript NodeJS example Worker microservice that reacts to a job event
+
+## Prerequsites:
+* The [Zebee Getting Started Tutorial](https://docs.zeebe.io/getting-started/index.html) has been completed, with the BPMN file being deployed to the Zeebe broker.
+
+## To run:
+```
+docker-compose up --build -d
+# wait for zeebe to start (zb-initialiser and zb-initiate-payment will fail to start initially)
+docker-compose up zb-initialiser -d
+docker-compose up zb-initiate-payment -d
+```
+
+## To initiate the Zebee Process:
+* `POST /localhost:3000/init-order-process`
+* Provide an orderId and orderValue i.e. `{ "orderId": 123, "orderValue": 100 }`
+
+This will start an Initiate Payment Job, which the Zb-initiate-payment Worker will complete.
+
+## Future
+
+The POC can be extending to publish messages and implement additional workers for the remaining tasks in the process.
+
+________________________________________________________________________________
+
 # Zeebe with Operate
 
 This directory contains a profile to run a single Zeebe broker with the embedded gateway, and an instance of Camunda Operate, with required components.

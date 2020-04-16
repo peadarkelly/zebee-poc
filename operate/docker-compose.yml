@@ -48,3 +48,22 @@ services:
       - "5601:5601"
     networks:
       - zeebe_network
+  # TODO - implement wait-for-zebee script for zb-initialiser and zb-initiate-payment services
+  zb-initialiser:
+    build:
+      context: ./zb-initialiser
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - zeebe_network
+    depends_on:
+      - zeebe
+  zb-initiate-payment:
+    build:
+      context: ./zb-initiate-payment
+      dockerfile: Dockerfile
+    networks:
+      - zeebe_network
+    depends_on:
+      - zeebe
